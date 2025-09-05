@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const categories = [
   "Social Media",
@@ -10,8 +11,31 @@ const categories = [
   "Wedding invites",
 ];
 
+function getCategoryIndex(cat: string | null) {
+  if (!cat) return 0;
+  const idx = categories.findIndex(
+    (c) => c.toLowerCase().replace(/\s+/g, "-") === cat
+  );
+  return idx === -1 ? 0 : idx;
+}
+
 export default function PortfolioPage() {
-  const [active, setActive] = useState(0);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const catParam = searchParams.get("cat");
+  const active = getCategoryIndex(catParam);
+
+  useEffect(() => {
+    // If no cat param, set it to the first category
+    if (!catParam) {
+      router.replace(`?cat=${categories[0].toLowerCase().replace(/\s+/g, "-")}`);
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  const handleTabClick = (idx: number) => {
+    router.push(`?cat=${categories[idx].toLowerCase().replace(/\s+/g, "-")}`);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-neutral-900 to-black px-2 pb-10 font-[Montserrat]">
@@ -27,7 +51,7 @@ export default function PortfolioPage() {
           {categories.map((cat, idx) => (
             <button
               key={cat}
-              onClick={() => setActive(idx)}
+              onClick={() => handleTabClick(idx)}
               className={`relative px-2 md:px-4 pb-1 text-base md:text-lg font-semibold transition
                 ${active === idx ? "text-red-500" : "text-white hover:text-red-400"}
               `}
@@ -42,8 +66,10 @@ export default function PortfolioPage() {
         </div>
         {/* Example: Section for portfolio items */}
         <div className="text-neutral-400 text-center italic mb-8">
-          
-          <p>Portfolio items for <span className="text-red-400">{categories[active]}</span> will appear here.</p>
+          <p>
+            Portfolio items for{" "}
+            <span className="text-red-400">{categories[active]}</span> will appear here.
+          </p>
         </div>
       </div>
     </div>

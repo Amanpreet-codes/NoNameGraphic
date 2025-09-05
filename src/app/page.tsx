@@ -1,4 +1,4 @@
-import Aboutbar from "@/components/ui/About_Bar";
+import WelcomeBar from "@/components/ui/Welcome_Bar";
 import Hero from "@/components/ui/Hero";
 import ExpertiseBar from "@/components/ui/ExpertiseBar";
 import StatsBar from "@/components/ui/StatsBar";
@@ -12,7 +12,7 @@ export default function Home() {
     <div className={`${titillium.variable} ${exo2.variable} min-h-screen pb-20 gap-16`}>
       <main className="sm:items-start">
           <Hero />
-          <Aboutbar />
+          <WelcomeBar />
           <ExpertiseBar />
           <StatsBar />
       </main>
