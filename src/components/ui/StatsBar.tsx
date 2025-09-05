@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const stats = [
 	{ label: "PROJECTS COMPLETED", value: 1000 },
 	{ label: "CLIENTS SERVED", value: 100 },
-	{ label: "YEARS OF CREATIVE EXCELLENCE", value: 5 },
+	{ label: "YEARS OF EXCELLENCE", value: 5 },
 ];
 
 function useCountUp(target: number, duration = 1200, start: boolean) {

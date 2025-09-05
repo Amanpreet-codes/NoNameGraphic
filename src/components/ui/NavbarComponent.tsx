@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
+import Logo from '@/assets/Logo.svg'
 import Link from 'next/link'
 
 const navigation = [
@@ -19,14 +21,18 @@ export default function NavbarComp() {
     <header className="absolute inset-x-0 top-0 z-50">
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <Link href="#" className="-m-1.5 p-1.5">
+            <Link href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">No Name Graphics</span>
-            <img
+            <Image
               alt="Logo"
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-              className="h-8 w-auto"
+              src={Logo}
+              width={40}
+              height={40}
+              className="h-10 w-auto"
+              priority
+              style={{ objectFit: "contain" }}
             />
-          </Link>
+            </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -40,13 +46,13 @@ export default function NavbarComp() {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <Link key={item.name} href={item.href} className="text-sm font-semibold text-white">
+            <Link key={item.name} href={item.href} className="text-sm font-semibold text-white font-[Inter]">
               {item.name}
             </Link>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="#" className="text-sm font-semibold text-white">
+          <Link href="#" className="text-sm font-semibold text-white font-[Inter]">
             Get Started <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
@@ -58,10 +64,13 @@ export default function NavbarComp() {
           <div className="flex items-center justify-between">
             <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">No Name Graphics</span>
-              <img
+              <Image
                 alt="Logo"
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                src={Logo}
+                width={32}
+                height={32}
                 className="h-8 w-auto"
+                priority
               />
             </Link>
             <button
@@ -80,7 +89,7 @@ export default function NavbarComp() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-600 hover:text-white transition"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-600 hover:text-white transition font-[Inter]"
                   >
                     {item.name}
                   </Link>
@@ -89,7 +98,7 @@ export default function NavbarComp() {
               <div className="py-6">
                 <Link
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-red-600 hover:text-white transition"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-red-600 hover:text-white transition font-[Inter]"
                 >
                   Get Started
                 </Link>
