@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export default function MobileBottomBar() {
   return (
-    <nav className="fixed bottom-0 left-0 w-full bg-neutral-900 flex justify-between items-center px-4 py-3 z-50 md:hidden font-[Montserrat]">
+    <nav className="fixed bottom-0 left-0 w-full bg-neutral-900 flex justify-between items-center px-4 py-3 z-50 md:hidden font-titillium">
       {/* Mail on the left */}
       <Link
         href="mailto:info@nonamegraphics.com"
-        className="flex items-center text-white font-medium gap-2 hover:bg-red-600 hover:text-white rounded px-2 py-1 transition font-[Inter]"
+        className="flex items-center text-white font-medium gap-2 hover:bg-red-600 hover:text-white rounded px-2 py-1 transition font-exo2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ export default function MobileBottomBar() {
       {/* Phone on the right */}
       <Link
         href="tel:+1234567890"
-        className="flex items-center text-white font-medium gap-2 hover:bg-red-600 hover:text-white rounded px-2 py-1 transition font-[Inter]"
+        className="flex items-center text-white font-medium gap-2 hover:bg-red-600 hover:text-white rounded px-2 py-1 transition font-exo2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

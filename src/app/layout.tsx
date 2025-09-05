@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Exo_2, Titillium_Web } from "next/font/google";
 import "./globals.css";
-import "./globals.css"
 import NavbarComponent from "@/components/ui/NavbarComponent";
 import FooterComponent from "@/components/ui/Footer";
 import MobileBottomBar from "@/components/ui/MobileBottomBar";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const exo2 = Exo_2({ subsets: ["latin"], variable: "--font-exo2" });
+const titillium = Titillium_Web({ subsets: ["latin"], variable: "--font-titillium", weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "No Name Grapics",
@@ -30,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${titillium.variable} ${exo2.variable} antialiased`}
       >
         <NavbarComponent />
           {children}

@@ -4,7 +4,7 @@ export default function Aboutbar() {
   return (
     <section className="w-full bg-neutral-900 py-12 px-4">
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-red-500 mb-4">About Us</h2>
+        <h2 className="text-4xl font-bold text-red-500 mb-4">Welcome To No Name Graphic</h2>
         <p className="text-lg text-neutral-200 mb-6">
           No Name Graphics is a creative studio dedicated to elevating your brand
           through innovative design, compelling visuals, and strategic storytelling.

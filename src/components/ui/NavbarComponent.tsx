@@ -9,7 +9,7 @@ import Link from 'next/link'
 
 const navigation = [
   { name: 'About us', href: '#' },
-  { name: 'Portfolio', href: '#' },
+  { name: 'Portfolio', href: 'portfolio' },
   { name: 'Pricing', href: '#' },
   { name: 'Our Services', href: '#' },
 ]
@@ -21,7 +21,7 @@ export default function NavbarComp() {
     <header className="absolute inset-x-0 top-0 z-50">
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-            <Link href="#" className="-m-1.5 p-1.5">
+            <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">No Name Graphics</span>
             <Image
               alt="Logo"
@@ -46,13 +46,22 @@ export default function NavbarComp() {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <Link key={item.name} href={item.href} className="text-sm font-semibold text-white font-[Inter]">
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold text-white font-[Inter] relative hover:text-red-500 transition
+                after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
+            >
               {item.name}
             </Link>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="#" className="text-sm font-semibold text-white font-[Inter]">
+          <Link
+            href="#"
+            className="text-sm font-semibold text-white font-[Inter] relative hover:text-red-500 transition
+              after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
+          >
             Get Started <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
@@ -89,7 +98,9 @@ export default function NavbarComp() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-600 hover:text-white transition font-[Inter]"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-white hover:text-red-500 hover:bg-red-50/5 transition font-[Inter] relative
+                      after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
                   >
                     {item.name}
                   </Link>
@@ -98,7 +109,9 @@ export default function NavbarComp() {
               <div className="py-6">
                 <Link
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-red-600 hover:text-white transition font-[Inter]"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:text-red-500 hover:bg-red-50/5 transition font-[Inter] relative
+                    after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
                 >
                   Get Started
                 </Link>

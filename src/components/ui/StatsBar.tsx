@@ -60,7 +60,7 @@ export default function StatsBar() {
 	return (
 		<section
 			ref={sectionRef}
-			className="w-full bg-neutral-900 py-10 rounded-t-2xl font-[Montserrat]"
+			className="w-full bg-neutral-900 py-10 rounded-t-2xl font-titillium"
 		>
 			<div className="flex flex-wrap justify-center items-center gap-10 max-w-4xl mx-auto">
 				{stats.map((stat) => {
@@ -68,16 +68,16 @@ export default function StatsBar() {
 					return (
 						<div
 							key={stat.label}
-							className="flex flex-col items-center min-w-[120px] font-[Montserrat]"
+							className="flex flex-col items-center min-w-[120px] font-titillium"
 						>
-							<div className="flex items-center gap-2 mb-2">
-								<span className="text-red-500 text-xs font-semibold tracking-widest uppercase font-[Inter]">
-									• {stat.label}
-								</span>
-							</div>
-							<div className="text-5xl font-bold text-white font-[Montserrat]">
+							<div className="text-5xl font-bold text-white font-titillium mb-2">
 								{count}
 								<span className="text-3xl align-top text-red-500">+</span>
+							</div>
+							<div className="flex items-center gap-2">
+								<span className="text-red-500 text-xs font-semibold tracking-widest uppercase font-exo2">
+									• {stat.label}
+								</span>
 							</div>
 						</div>
 					);

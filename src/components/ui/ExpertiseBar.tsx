@@ -84,7 +84,7 @@ const expertise = [
 
 export default function ExpertiseBar() {
 	return (
-		<section className="w-full bg-neutral-900 py-8 px-2 font-[Montserrat]">
+		<section className="w-full bg-neutral-900 py-8 px-2 font-titillium">
 			<h2 className="text-5xl font-bold text-center text-red-600 mb-8">
 				Our Expertise:
 			</h2>
@@ -93,23 +93,23 @@ export default function ExpertiseBar() {
 					<div
 						key={item.title}
 						className="w-72 bg-neutral-800 border border-neutral-700 rounded-lg p-6 flex flex-col items-start text-white transition
-              hover:scale-105 hover:shadow-xl hover:border-red-500 hover:bg-neutral-700 font-[Montserrat]"
+              hover:scale-105 hover:shadow-xl hover:border-red-500 hover:bg-neutral-700 font-titillium"
 					>
 						<div className="mb-4">{item.icon}</div>
-						<h3 className="text-2xl font-semibold mb-1 text-red-500 font-[Montserrat]">
+						<h3 className="text-2xl font-semibold mb-1 text-red-500 font-titillium">
 							{item.title}
 						</h3>
 						{item.subtitle && (
-							<div className="text-sm text-neutral-300 mb-1 font-[Inter]">
+							<div className="text-sm text-neutral-300 mb-1 font-exo2">
 								{item.subtitle}
 							</div>
 						)}
-						<p className="text-sm mb-6 text-neutral-200 font-[Inter]">
+						<p className="text-sm mb-6 text-neutral-200 font-exo2">
 							{item.desc}
 						</p>
 						<a
 							href="#"
-							className="mt-auto px-4 py-2 border border-red-500 rounded text-white hover:bg-red-600 hover:text-white transition font-semibold font-[Montserrat]"
+							className="mt-auto px-4 py-2 border border-red-500 rounded text-white hover:bg-red-600 hover:text-white transition font-semibold font-titillium"
 						>
 							EXPLORE NOW
 						</a>

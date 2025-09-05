@@ -21,20 +21,20 @@ export default function Example() {
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
-            <h1 className="font-[Montserrat] text-5xl font-semibold tracking-tight text-balance text-red-500 sm:text-7xl">
+            <h1 className="font-titillium text-5xl font-semibold tracking-tight text-balance text-red-500 sm:text-7xl">
               Designs that speak louder than words.
             </h1>
-            <p className="mt-8 text-lg font-medium text-pretty text-neutral-200 sm:text-xl/8 font-[Inter]">
+            <p className="mt-8 text-lg font-medium text-pretty text-neutral-200 sm:text-xl/8 font-exo2">
               We may be No Name, but your name will shine!
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6 font-[Montserrat]">
+            <div className="mt-10 flex items-center justify-center gap-x-6 font-titillium">
               <Link
                 href="/contact"
-                className="inline-block px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-neutral-800 hover:text-red-400 transition font-[Montserrat]"
+                className="inline-block px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-neutral-800 hover:text-red-400 transition font-titillium"
               >
                 Get Started
               </Link>
-              <Link href="#" className="text-sm/6 px-4 py-2 rounded-lg font-semibold text-white hover:bg-red-600 transition font-[Montserrat]">
+              <Link href="#" className="text-sm/6 px-4 py-2 rounded-lg font-semibold text-white hover:bg-red-600 transition font-titillium">
                 See Our Work  <span aria-hidden="true">→</span>
               </Link>
             </div>
