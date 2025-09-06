@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "flowbite";
 import { Exo_2, Titillium_Web } from "next/font/google";
 import "./globals.css";
 import NavbarComponent from "@/components/ui/NavbarComponent";

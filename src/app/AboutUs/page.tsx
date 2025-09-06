@@ -96,13 +96,18 @@ const testimonials = [
 
 export default function AboutUsPage() {
 	const [isPaused, setIsPaused] = useState(false);
+	const [hasMounted, setHasMounted] = useState(false);
 	const containerRef = useRef<HTMLDivElement>(null);
 	const controls = useAnimation();
 
-	
+	useEffect(() => {
+		setHasMounted(true);
+	}, []);
+
 	const allTestimonials = [...testimonials, ...testimonials];
 
 	useEffect(() => {
+		if (!hasMounted) return;
 		let animationFrame: number;
 		let start: number | null = null;
 		let currentX = 0;
@@ -124,19 +129,19 @@ export default function AboutUsPage() {
 		return () => {
 			cancelAnimationFrame(animationFrame);
 		};
-	}, [isPaused, controls, allTestimonials.length]);
+	}, [isPaused, controls, allTestimonials.length, hasMounted]);
 
 	return (
 		<div className="min-h-screen w-full bg-gradient-to-b from-black via-neutral-900 to-black px-2 pb-10 pl-10 font-exo2">
 			{/* Hero Section */}
-			<section className="w-[100vw] max-w-none mx-auto flex flex-col md:flex-row items-center gap-8 pt-32 mb-14 min-h-[100vh]">
+			<section className="w-[100vw] max-w-full mx-auto flex flex-col md:flex-row items-center gap-8 pt-32 mb-14 min-h-[100vh]">
 				<div className="flex-1 text-left md:pr-6">
-					<p className="uppercase tracking-widest text-red-400 font-bold mb-1 text-xs md:text-sm">Who We Are</p>
-					<h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-titillium leading-tight">
+					<p className="uppercase tracking-widest text-red-400 font-bold mb-1 text-xs md:text-sm text-center md:text-left">Who We Are</p>
+					<h1 className="text-4xl md:text-5xl font-bold text-center md:text-left text-white mb-4 font-titillium leading-tight">
 						About Us
 					</h1>
 					<p className="text-neutral-200 text-base md:text-lg mb-3 font-exo2">
-						If there’s a change your brand craves, we believe we can help you fulfill it. But we’re not about navigating blindfolded, over the last 3 years, we have built a team that goes on this journey with you, and what comes for the ride — are some super interactive brainstorming sessions and exchange of ideas. Founded by Amritpal Singh, we are a branding, marketing and creative agency based in New Delhi with a strong belief that design, be it any kind and for anything should be as functional as it is captivating.
+						If there’s a change your brand craves, we believe we can help you fulfill it. But we’re not about navigating blindfolded, over the last 3 years, we have built a team that goes on this journey with you, and what comes for the ride are some super interactive brainstorming sessions and exchange of ideas. Founded by Amritpal Singh, we are a branding, marketing and creative agency based in New Delhi with a strong belief that design, be it any kind and for anything should be as functional as it is captivating.
 					</p>
 					<p className="text-neutral-400 text-sm md:text-base font-exo2">
 						Our approach is all hands-on, and we make sure you get the benefit of our combined expertise and a genuine passion for your brand. This best of both worlds approach helps you create a brand that is unique, ever-evolving and reaches exactly who it’s meant for.
