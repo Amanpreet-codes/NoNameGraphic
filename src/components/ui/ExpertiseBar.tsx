@@ -1,9 +1,11 @@
 import React from "react";
+import Link from "next/link";
 
 const expertise = [
 	{
 		title: "Graphic Design",
 		desc: "We craft eye-catching designs that bring your brand's vision to life. From logos to social media creatives, we make sure your brand stands out.",
+		key: "design",
 		icon: (
 			<svg
 				className="h-8 w-8 text-white"
@@ -19,6 +21,7 @@ const expertise = [
 	{
 		title: "Video Editing",
 		desc: "Transforming raw footage into engaging stories with smooth transitions, effects, and music that keep viewers hooked.",
+		key: "video-services",
 		icon: (
 			<svg
 				className="h-8 w-8 text-white"
@@ -36,6 +39,7 @@ const expertise = [
 		title: "Printables",
 		subtitle: "(Flyers, Brochures, Standees, etc.)",
 		desc: "High-quality printable designs that leave a lasting impression, perfect for promotions, events, and brand awareness.",
+		key: "printables",
 		icon: (
 			<svg
 				className="h-8 w-8 text-white"
@@ -51,6 +55,7 @@ const expertise = [
 	{
 		title: "Motion Graphics",
 		desc: "Adding life to visuals with stunning animations and motion effects for ads, presentations, and digital campaigns.",
+		key: "motion-graphics",
 		icon: (
 			<svg
 				className="h-8 w-8 text-white"
@@ -67,6 +72,7 @@ const expertise = [
 	{
 		title: "Wedding Invites",
 		desc: "Personalized wedding invitations and e-cards designed with memorable elegance to make your celebrations memorable.",
+		key: "wedding-invites",
 		icon: (
 			<svg
 				className="h-8 w-8 text-white"
@@ -107,12 +113,12 @@ export default function ExpertiseBar() {
 						<p className="text-sm mb-6 text-neutral-200 font-exo2">
 							{item.desc}
 						</p>
-						<a
-							href="#"
+						<Link
+							href={`/portfolio?cat=${item.key}`}
 							className="mt-auto px-4 py-2 border border-red-500 rounded text-white hover:bg-red-600 hover:text-white transition font-semibold font-titillium"
 						>
 							EXPLORE NOW
-						</a>
+						</Link>
 					</div>
 				))}
 			</div>

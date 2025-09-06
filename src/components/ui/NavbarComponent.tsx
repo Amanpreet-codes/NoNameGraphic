@@ -8,7 +8,8 @@ import Logo from '@/assets/Logo.svg'
 import Link from 'next/link'
 
 const navigation = [
-  { name: 'About us', href: '#' },
+  {name: 'Home', href: '/'},
+  { name: 'About us', href: 'AboutUs' },
   { name: 'Portfolio', href: 'portfolio' },
   { name: 'Pricing', href: '#' },
   { name: 'Our Services', href: '#' },
@@ -99,7 +100,7 @@ export default function NavbarComp() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-white hover:text-red-500 hover:bg-red-50/5 transition font-[Inter] relative
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-white hover:text-red-500 hover:bg-red-50/5 transition font-titillium relative
                       after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
                   >
                     {item.name}
@@ -110,7 +111,7 @@ export default function NavbarComp() {
                 <Link
                   href="#"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:text-red-500 hover:bg-red-50/5 transition font-[Inter] relative
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:text-red-500 hover:bg-red-50/5 transition font-titillium relative
                     after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
                 >
                   Get Started
