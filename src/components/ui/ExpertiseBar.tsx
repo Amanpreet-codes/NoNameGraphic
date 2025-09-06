@@ -99,10 +99,10 @@ export default function ExpertiseBar() {
 					<div
 						key={item.title}
 						className="w-72 bg-neutral-800 border border-neutral-700 rounded-lg p-6 flex flex-col items-start text-white transition
-              hover:scale-105 hover:shadow-xl hover:border-red-500 hover:bg-neutral-700 font-titillium"
+              				hover:scale-105 hover:shadow-xl hover:border-red-500 group hover:bg-red-600 hover:text-white font-titillium"
 					>
 						<div className="mb-4">{item.icon}</div>
-						<h3 className="text-2xl font-semibold mb-1 text-red-500 font-titillium">
+						<h3 className="text-2xl font-semibold mb-1 text-red-500 group-hover:text-white font-titillium">
 							{item.title}
 						</h3>
 						{item.subtitle && (
@@ -115,7 +115,7 @@ export default function ExpertiseBar() {
 						</p>
 						<Link
 							href={`/portfolio?cat=${item.key}`}
-							className="mt-auto px-4 py-2 border border-red-500 rounded text-white hover:bg-red-600 hover:text-white transition font-semibold font-titillium"
+							className="mt-auto px-4 py-2 border-3 border-red-500 group-hover:border-white rounded text-white hover:bg-red-600 hover:text-white transition font-semibold font-titillium"
 						>
 							EXPLORE NOW
 						</Link>

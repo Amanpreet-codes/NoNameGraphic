@@ -3,6 +3,9 @@
 import React, { SVGProps, useRef, useEffect, useState } from "react"
 import { motion, useAnimation } from "framer-motion"
 import Image from "next/image"
+import amritpal from '@/assets/team/Amritpal.png'
+import mohit from "@/assets/team/mohit.jpg"
+import vanshika from "@/assets/team/vanshika.jpg"
 import HeroImage from "@/assets/HeroAboutUs.jpg"
 import Link from "next/link"
 
@@ -12,42 +15,42 @@ const team = [
 		role: "Founder & Design Head",
 		desc: "The visionary behind No Name Graphics, leading the creative direction and ensuring every design reflects excellence.",
 		fun: "Loves experimenting with bold color palettes.",
-		img: "/team/amritpal.jpg",
+		img: amritpal,
 	},
 	{
 		name: "Sahil",
 		role: "Graphic Designer",
 		desc: "Crafting eye-catching visuals and designs that tell your brand’s story beautifully.",
 		fun: "Can turn any idea into a killer poster in minutes.",
-		img: "/team/sahil.jpg",
+		img: amritpal,
 	},
 	{
 		name: "Mohit",
 		role: "Video Editor",
 		desc: "Turning raw footage into engaging and polished videos that leave a lasting impact.",
 		fun: "Edits videos faster than you can say 'render'.",
-		img: "/team/mohit.jpg",
+		img: mohit,
 	},
 	{
 		name: "Siddharth",
 		role: "Video Editor",
 		desc: "Adding creativity and precision to every frame for videos that truly stand out.",
 		fun: "Believes every story deserves a cinematic touch.",
-		img: "/team/siddharth.jpg",
+		img: amritpal,
 	},
 	{
 		name: "Vanshika",
 		role: "Sales Head",
 		desc: "Building strong client relationships and ensuring seamless communication for every project.",
 		fun: "Knows every client by name and their favorite color.",
-		img: "/team/vanshika.jpg",
+		img: vanshika,
 	},
 	{
 		name: "Amanpreet Singh",
 		role: "Web Developer",
 		desc: "Bringing designs to life through functional, user-friendly, and modern web solutions.",
 		fun: "Can debug code and make chai at the same time.",
-		img: "/team/amanpreet.jpg",
+		img: amritpal,
 	},
 ];
 
@@ -177,7 +180,7 @@ export default function AboutUsPage() {
 								)}
 							</div>
 							<div className="flex-shrink-0">
-								<img
+								<Image
 									src={member.img}
 									alt={member.name}
 									className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-red-600 shadow-md"
