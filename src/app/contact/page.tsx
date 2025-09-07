@@ -11,10 +11,10 @@ export default function ContactPage() {
       <div className="w-full max-w-xl bg-neutral-900 rounded-2xl shadow-xl border border-neutral-800 p-8">
         <h1 className="text-4xl font-bold text-red-600 mb-2 text-center font-titillium">Contact Us</h1>
         <p className="text-neutral-300 text-center mb-8 font-exo2">
-          Let's talk about your project, idea, or collaboration. Fill out the form and we'll get back to you soon!
+          Let&apos;s talk about your project, idea, or collaboration. Fill out the form and we&apos;ll get back to you soon!
         </p>
         {submitted ? (
-          <div className="text-green-400 text-center text-lg font-bold py-12">Thank you! We'll be in touch soon.</div>
+          <div className="text-green-400 text-center text-lg font-bold py-12">Thank you! We&apos;ll be in touch soon.</div>
         ) : (
           <form
             className="flex flex-col gap-4"

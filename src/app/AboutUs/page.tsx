@@ -1,13 +1,12 @@
 "use client"
 
-import React, { SVGProps, useRef, useEffect, useState } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { motion, useAnimation } from "framer-motion"
 import Image from "next/image"
 import amritpal from '@/assets/team/Amritpal.png'
 import mohit from "@/assets/team/mohit.jpg"
 import vanshika from "@/assets/team/vanshika.jpg"
 import HeroImage from "@/assets/HeroAboutUs.jpg"
-import Link from "next/link"
 
 const team = [
 	{
