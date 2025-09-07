@@ -112,13 +112,17 @@ export default function AboutUsPage() {
 		let start: number | null = null;
 		let currentX = 0;
 
+		function setControls(x: number) {
+			controls.set({ x });
+		}
+
 		const animate = (timestamp: number) => {
 			if (isPaused) return;
 			if (!start) start = timestamp;
 			const elapsed = timestamp - start;
 			const speed = 0.06; // px/ms, adjust for speed
 			currentX = -((elapsed * speed) % (allTestimonials.length * 340)); // 340px per card incl. gap
-			controls.set({ x: currentX });
+			setControls(currentX);
 			animationFrame = requestAnimationFrame(animate);
 		};
 
@@ -129,7 +133,7 @@ export default function AboutUsPage() {
 		return () => {
 			cancelAnimationFrame(animationFrame);
 		};
-	}, [isPaused, controls, allTestimonials.length, hasMounted]);
+	}, [isPaused, allTestimonials.length, hasMounted, controls]);
 
 	return (
 		<div className="min-h-screen w-full bg-gradient-to-b from-black via-neutral-900 to-black px-2 pb-10 pl-10 font-exo2">
@@ -229,18 +233,6 @@ export default function AboutUsPage() {
 						</motion.div>
 					</div>
 				</div>
-			</section>
-
-			{/* CTA */}
-			<section className="max-w-2xl mx-auto mb-8 text-center">
-				<h2 className="text-xl font-bold text-white mb-2 font-titillium">Ready to bring your ideas to life?</h2>
-				<p className="text-neutral-300 font-exo2 mb-4 text-sm">Let’s collaborate and make it happen.</p>
-				<Link
-					href="/contact"
-					className="inline-block px-6 py-2 rounded-lg bg-red-600 text-white font-bold font-titillium text-base hover:bg-red-700 transition"
-				>
-					Get in Touch
-				</Link>
 			</section>
 		</div>
 	)

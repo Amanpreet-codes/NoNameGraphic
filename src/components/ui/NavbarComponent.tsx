@@ -6,17 +6,18 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Logo from '@/assets/Logo.svg'
 import Link from 'next/link'
+import { usePathname } from "next/navigation"
 
 const navigation = [
-  {name: 'Home', href: '/'},
-  { name: 'About us', href: 'AboutUs' },
-  { name: 'Portfolio', href: 'portfolio' },
-  { name: 'Pricing', href: '#' },
-  { name: 'Our Services', href: '#' },
+  { name: 'Home', href: '/' },
+  { name: 'About us', href: '/AboutUs' },
+  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Pricing', href: '/pricing' },
 ]
 
 export default function NavbarComp() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -46,24 +47,30 @@ export default function NavbarComp() {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold text-white font-[Inter] relative hover:text-red-500 transition
-                after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const isActive = pathname === item.href
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`text-sm font-semibold font-[Inter] relative transition
+                  ${isActive ? "text-red-500 after:scale-x-100" : "text-white hover:text-red-500"}
+                  after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1
+                  ${isActive ? "after:scale-x-100" : ""}
+                `}
+              >
+                {item.name}
+              </Link>
+            )
+          })}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
-            href="#"
+            href="/contact"
             className="text-sm font-semibold text-white font-[Inter] relative hover:text-red-500 transition
               after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
           >
-            Get Started <span aria-hidden="true">&rarr;</span>
+            Contact Us <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </nav>
@@ -95,26 +102,33 @@ export default function NavbarComp() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-red-700/20">
               <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-white hover:text-red-500 hover:bg-red-50/5 transition font-titillium relative
-                      after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                {navigation.map((item) => {
+                  const isActive = pathname === item.href
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold font-titillium relative transition
+                        ${isActive ? "text-red-500 after:scale-x-100" : "text-white hover:text-red-500"}
+                        hover:bg-red-50/5
+                        after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1
+                        ${isActive ? "after:scale-x-100" : ""}
+                      `}
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                })}
               </div>
               <div className="py-6">
                 <Link
-                  href="#"
+                  href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:text-red-500 hover:bg-red-50/5 transition font-titillium relative
                     after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
                 >
-                  Get Started
+                  Contact Us
                 </Link>
               </div>
             </div>
