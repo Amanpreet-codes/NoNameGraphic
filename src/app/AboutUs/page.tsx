@@ -170,25 +170,30 @@ export default function AboutUsPage() {
 							transition={{ delay: idx * 0.12, duration: 0.5, type: "spring" }}
 							className={`flex flex-col md:flex-row items-center bg-neutral-800 rounded-2xl shadow-lg p-4 md:p-7 gap-4 md:gap-7 w-full
 								${idx % 2 === 1 ? "md:flex-row-reverse" : ""}
-								hover:scale-[1.03] hover:shadow-2xl hover:border-red-500 border border-transparent transition-all duration-300`}
+								border border-transparent transition-all duration-300
+								group hover:bg-red-600 hover:border-red-600 hover:scale-[1.04] hover:shadow-2xl`}
 						>
 							<div className="flex-1 flex flex-col items-start md:items-start">
-								<h3 className="text-xl md:text-2xl font-bold text-red-500 font-titillium mb-1">
+								<h3 className="text-xl md:text-2xl font-bold font-titillium mb-1 transition-colors duration-300 text-red-500 group-hover:text-white">
 									{member.name}
 								</h3>
-								<h4 className="text-base font-semibold text-white mb-1 font-titillium">
+								<h4 className="text-base font-semibold text-white mb-1 font-titillium transition-colors duration-300 group-hover:text-white">
 									{member.role}
 								</h4>
-								<p className="text-neutral-200 font-exo2 text-sm mb-1">{member.desc}</p>
+								<p className="text-neutral-200 font-exo2 text-sm mb-1 transition-colors duration-300 group-hover:text-white">
+									{member.desc}
+								</p>
 								{member.fun && (
-									<span className="text-xs text-red-300 font-exo2 italic">{member.fun}</span>
+									<span className="text-xs text-red-200 font-exo2 italic group-hover:text-white transition-colors duration-300">
+										{member.fun}
+									</span>
 								)}
 							</div>
-							<div className="flex-shrink-0">
+							<div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
 								<Image
 									src={member.img}
 									alt={member.name}
-									className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-red-600 shadow-md"
+									className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-red-600 shadow-md group-hover:border-white group-hover:shadow-white/40 transition-all duration-300"
 								/>
 							</div>
 						</motion.div>
