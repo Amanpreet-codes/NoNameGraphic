@@ -56,8 +56,8 @@ export default function Hero() {
   }, [instanceRef])
 
   return (
-    <div className="bg-neutral-900 min-h-screen flex items-center">
-      <div className="relative isolate px-6 pt-14 lg:px-8 w-full">
+    <div className="bg-neutral-900 min-h-screen h-screen flex items-center">
+      <div className="relative isolate px-0 pt-0 lg:px-0 w-full h-screen">
         {/* Background gradient top */}
         <div
           aria-hidden="true"
@@ -73,16 +73,20 @@ export default function Hero() {
         </div>
 
         {/* Carousel */}
-        <div className="max-w-full max-h-full py-32 sm:py-48 lg:py-24 lg:pt-12">
-          <div ref={sliderRef} className="keen-slider relative h-[60vh] md:h-[80vh] overflow-hidden rounded-lg">
+        <div className="w-full h-screen">
+          <div
+            ref={sliderRef}
+            className="keen-slider relative h-screen w-full overflow-hidden rounded-none"
+          >
             {[Hero1, Hero2, Hero3].map((img, i) => (
-              <div key={i} className="keen-slider__slide relative">
+              <div key={i} className="keen-slider__slide relative h-screen w-full">
                 <Image
                   src={img}
                   alt={`Slide ${i + 1}`}
                   fill
                   className="object-cover"
                   priority={i === 0}
+                  sizes="100vw"
                 />
               </div>
             ))}
