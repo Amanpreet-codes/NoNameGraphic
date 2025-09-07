@@ -240,5 +240,3 @@ export default function AboutUsPage() {
 		</div>
 	)
 }
-
-type IconProps = SVGProps<SVGSVGElement>
