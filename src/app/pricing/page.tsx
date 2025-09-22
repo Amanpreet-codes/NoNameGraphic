@@ -6,22 +6,21 @@ import Link from "next/link"
 const packages = [
 	{
 		name: "Starter Pack",
-		price: "₹14,999",
 		color: "red",
 		features: [
 			{ label: "Social Media Poster", included: true },
 			{ label: "Social Media Story", included: true },
 			{ label: "Social Cover", included: true },
 			{ label: "Youtube Thumbnail", included: true },
+			{ label: "A4 Flyer", included: true },
+			{ label: "Menu Design", included: true },
+			{ label: "Banner", included: true },
+			{ label: "Standee", included: true },
 			{ label: "Logo Design", included: false },
 			{ label: "Visiting Card", included: false },
 			{ label: "Letterhead", included: false },
 			{ label: "ID Card", included: false },
-			{ label: "A4 Flyer", included: false },
-			{ label: "Menu Design", included: false },
 			{ label: "Brochure", included: false },
-			{ label: "Banner", included: false },
-			{ label: "Standee", included: false },
 			{ label: "Packaging Design", included: false },
 			{ label: "Wedding Invites", included: false },
 			{ label: "Social Media Reels (up to 1 min)", included: false },
@@ -33,8 +32,33 @@ const packages = [
 	},
 	{
 		name: "Growth Pack",
-		price: "₹19,999",
 		color: "blue",
+		features: [
+			{ label: "Social Media Poster", included: true },
+			{ label: "Social Media Story", included: true },
+			{ label: "Social Cover", included: true },
+			{ label: "Youtube Thumbnail", included: true },
+			{ label: "A4 Flyer", included: true },
+			{ label: "Menu Design", included: true },
+			{ label: "Banner", included: true },
+			{ label: "Standee", included: true },
+			{ label: "Social Media Reels (up to 1 min)", included: true },
+			{ label: "Logo Design", included: false },
+			{ label: "Visiting Card", included: false },
+			{ label: "Letterhead", included: false },
+			{ label: "ID Card", included: false },
+			{ label: "Brochure", included: false },
+			{ label: "Packaging Design", included: false },
+			{ label: "Wedding Invites", included: false },
+			{ label: "Motion Graphic Explainer Reel", included: false },
+			{ label: "Influencer Video", included: false },
+			{ label: "Podcast Editing", included: false },
+		],
+		cta: "ENQUIRE NOW",
+	},
+	{
+		name: "Premium Pack",
+		color: "red",
 		features: [
 			{ label: "Social Media Poster", included: true },
 			{ label: "Social Media Story", included: true },
@@ -52,33 +76,6 @@ const packages = [
 			{ label: "Packaging Design", included: true },
 			{ label: "Wedding Invites", included: true },
 			{ label: "Social Media Reels (up to 1 min)", included: true },
-			{ label: "Motion Graphic Explainer Reel", included: true },
-			{ label: "Influencer Video", included: false },
-			{ label: "Podcast Editing", included: false },
-		],
-		cta: "ENQUIRE NOW",
-	},
-	{
-		name: "Premium Pack",
-		price: "₹24,999",
-		color: "red",
-		features: [
-			{ label: "Social Media Poster", included: true },
-			{ label: "Social Media Story", included: true },
-			{ label: "Social Cover", included: true },
-			{ label: "Youtube Thumbnail", included: true },
-			{ label: "Logo Design", included: true },
-			{ label: "Visiting Card", included: true },
-			{ label: "Letterhead", included: true },
-			{ label: "ID Card", included: true },
-			{ label: "A4 Flyer", included: true },
-			{ label: "Menu Design", included: true },
-			{ label: "Brochure", included: true },
-			{ label: "Banner", included: true },
-			{ label: "Standee", included: true },
-			{ label: "Packaging Design", included: true },
-			{ label: "Wedding Invites", included: true },
-			{ label: "Social Media Reels (up to 1 min)", included: false },
 			{ label: "Motion Graphic Explainer Reel", included: false },
 			{ label: "Influencer Video", included: false },
 			{ label: "Podcast Editing", included: false },
@@ -87,7 +84,6 @@ const packages = [
 	},
 	{
 		name: "Ultimate Pack",
-		price: "₹29,999",
 		color: "blue",
 		features: [
 			{ label: "Premium Poster Design", included: true },
@@ -132,8 +128,8 @@ function getButtonColor(color: string) {
 
 export default function PricingPage() {
 	return (
-		<div className="min-h-screen bg-gradient-to-b from-black via-neutral-900 to-black px-2 py-16 font-titillium">
-			<div className="w-[98vw] max-w-[1800px] mx-auto">
+		<div className="min-h-screen bg-gradient-to-b from-black via-neutral-900 to-black px-4 py-16 font-titillium">
+			<div className="max-w-7xl mx-auto">
 				<h1 className="text-5xl font-bold text-center text-red-600 mb-2 font-titillium">
 					Monthly Packages
 				</h1>
@@ -141,12 +137,11 @@ export default function PricingPage() {
 					Choose the plan that fits your business needs. All packages are billed
 					monthly and include a wide range of design, print, and digital services.
 				</p>
-				<div className="flex flex-row flex-wrap md:flex-nowrap justify-center gap-8 w-full items-stretch">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
 					{packages.map((pack, idx) => (
 						<div
 							key={pack.name}
-							className={`flex flex-col max-w-xs rounded-2xl shadow-xl border-2 border-neutral-800 bg-neutral-900 overflow-hidden hover:scale-[1.03] transition-transform duration-300 flex-shrink-0 h-auto`}
-							style={{ width: "100%", minWidth: "260px" }}
+							className={`flex flex-col w-full max-w-xs rounded-2xl shadow-xl border-2 border-neutral-800 bg-neutral-900 overflow-hidden hover:scale-[1.03] transition-transform duration-300`}
 						>
 							<div
 								className={`w-full py-5 px-6 text-center font-bold text-3xl text-white bg-gradient-to-r ${getColor(
@@ -155,19 +150,8 @@ export default function PricingPage() {
 							>
 								{pack.name}
 							</div>
-							<div className="w-full px-6 text-center flex flex-col items-center">
-								<span className="text-sm text-neutral-400 mb-0.5 font-exo2 tracking-wide font-semibold">
-									Starts at
-								</span>
-								<div className="py-2 text-4xl font-extrabold text-white leading-tight">
-									{pack.price}
-								</div>
-							</div>
-							<div className="px-6 pb-4 flex flex-col flex-grow">
-								<div className="text-left text-sm font-semibold text-neutral-400 mb-2">
-									INCLUSION:
-								</div>
-								<ul className="mb-6 space-y-1 flex-grow">
+							<div className="px-6 pb-4 pt-4 flex flex-col flex-grow">
+								<ul className="mx-6 pb-4 space-y-1 flex-grow">
 									{pack.features.map((f, i) => (
 										<li
 											key={f.label}

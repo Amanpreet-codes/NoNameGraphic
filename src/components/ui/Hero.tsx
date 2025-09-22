@@ -5,9 +5,10 @@ import "keen-slider/keen-slider.min.css"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 
-import Hero1 from "@/assets/Hero1.jpg"
-import Hero2 from "@/assets/Hero2.jpg"
-import Hero3 from "@/assets/Hero3.jpg"
+import Hero1 from "/public/Hero1.jpg"
+import Hero2 from "/public/Hero2.jpg"
+import Hero3 from "/public/Hero3.jpg"
+
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)

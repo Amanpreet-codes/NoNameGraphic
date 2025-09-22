@@ -13,7 +13,7 @@ This repo powers our landing page and portfolio — built with modern web techno
 
 ---
 
-![No Name Graphics Home Page](./src/assets/HomePage-Screenshot.png)
+![No Name Graphics Home Page](./src/public/HomePage-Screenshot.png)
 
 ---
 

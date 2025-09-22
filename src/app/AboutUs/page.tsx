@@ -3,10 +3,13 @@
 import React, { useRef, useEffect, useState } from "react"
 import { motion, useAnimation } from "framer-motion"
 import Image from "next/image"
-import amritpal from '@/assets/team/Amritpal.png'
-import mohit from "@/assets/team/mohit.jpg"
-import vanshika from "@/assets/team/vanshika.jpg"
-import HeroImage from "@/assets/HeroAboutUs.jpg"
+import amritpal from "/public/team/amritpal.jpg"
+import mohit from "/public/team/mohit.jpg"
+import vanshika from "/public/team/vanshika.jpg"
+import sahil from "/public/team/sahil.jpg"
+import sidharth from "/public/team/sidharth.jpg"
+import rohan from "/public/team/rohan.jpg"
+import HeroImage from "/public/HeroAboutUs.jpg"
 
 const team = [
 	{
@@ -17,11 +20,18 @@ const team = [
 		img: amritpal,
 	},
 	{
+		name: "Rohan Kundalia",
+		role: "Visual Design Lead",
+		desc: "Expert in visual storytelling, Rohan ensures every project is visually stunning and on-brand.",
+		fun: "Sketches ideas on napkins before moving to the screen.",
+		img: rohan,
+	},
+	{
 		name: "Sahil",
 		role: "Graphic Designer",
 		desc: "Crafting eye-catching visuals and designs that tell your brand’s story beautifully.",
 		fun: "Can turn any idea into a killer poster in minutes.",
-		img: amritpal,
+		img: sahil,
 	},
 	{
 		name: "Mohit",
@@ -35,7 +45,7 @@ const team = [
 		role: "Video Editor",
 		desc: "Adding creativity and precision to every frame for videos that truly stand out.",
 		fun: "Believes every story deserves a cinematic touch.",
-		img: amritpal,
+		img: sidharth,
 	},
 	{
 		name: "Vanshika",
@@ -49,7 +59,7 @@ const team = [
 		role: "Web Developer",
 		desc: "Bringing designs to life through functional, user-friendly, and modern web solutions.",
 		fun: "Can debug code and make chai at the same time.",
-		img: amritpal,
+		img: amritpal, 
 	},
 ];
 
@@ -99,6 +109,9 @@ export default function AboutUsPage() {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const controls = useAnimation();
 
+	const elapsedRef = useRef(0);
+	const pauseStartRef = useRef<number | null>(null);
+
 	useEffect(() => {
 		setHasMounted(true);
 	}, []);
@@ -116,9 +129,13 @@ export default function AboutUsPage() {
 		}
 
 		const animate = (timestamp: number) => {
-			if (isPaused) return;
-			if (!start) start = timestamp;
+			if (isPaused) {
+				pauseStartRef.current = timestamp;
+				return;
+			}
+			if (!start) start = timestamp - elapsedRef.current;
 			const elapsed = timestamp - start;
+			elapsedRef.current = elapsed;
 			const speed = 0.06; // px/ms, adjust for speed
 			currentX = -((elapsed * speed) % (allTestimonials.length * 340)); // 340px per card incl. gap
 			setControls(currentX);
@@ -127,12 +144,21 @@ export default function AboutUsPage() {
 
 		if (!isPaused) {
 			animationFrame = requestAnimationFrame(animate);
+		} else {
+			if (pauseStartRef.current !== null) {
+			}
 		}
 
 		return () => {
 			cancelAnimationFrame(animationFrame);
 		};
 	}, [isPaused, allTestimonials.length, hasMounted, controls]);
+
+	useEffect(() => {
+		if (!isPaused && pauseStartRef.current !== null) {
+			pauseStartRef.current = null;
+		}
+	}, [isPaused]);
 
 	return (
 		<div className="min-h-screen w-full bg-gradient-to-b from-black via-neutral-900 to-black px-2 pb-10 pl-10 font-exo2">

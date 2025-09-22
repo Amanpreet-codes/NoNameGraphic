@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import Logo from '@/assets/Logo.svg'
+import Logo from '/public/Logo.svg'
 import Link from 'next/link'
 import { usePathname } from "next/navigation"
 
@@ -53,7 +53,7 @@ export default function NavbarComp() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-semibold font-[Inter] relative transition
+                className={`text-sm font-semibold font-exo2 relative transition
                   ${isActive ? "text-red-500 after:scale-x-100" : "text-white hover:text-red-500"}
                   after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1
                   ${isActive ? "after:scale-x-100" : ""}
@@ -67,7 +67,7 @@ export default function NavbarComp() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
             href="/contact"
-            className="text-sm font-semibold text-white font-[Inter] relative hover:text-red-500 transition
+            className="text-sm font-semibold text-white font-exo2 relative hover:text-red-500 transition
               after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
           >
             Contact Us <span aria-hidden="true">&rarr;</span>
@@ -109,7 +109,7 @@ export default function NavbarComp() {
                       key={item.name}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold font-titillium relative transition
+                      className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold font-exo2 relative transition
                         ${isActive ? "text-red-500 after:scale-x-100" : "text-white hover:text-red-500"}
                         hover:bg-red-50/5
                         after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1
@@ -125,7 +125,7 @@ export default function NavbarComp() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:text-red-500 hover:bg-red-50/5 transition font-titillium relative
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:text-red-500 hover:bg-red-50/5 transition font-exo2 relative
                     after:content-[''] after:block after:h-0.5 after:bg-red-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left after:mt-1"
                 >
                   Contact Us
