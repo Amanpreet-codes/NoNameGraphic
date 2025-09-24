@@ -1,12 +1,8 @@
 'use client';
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import { Exo_2, Titillium_Web } from "next/font/google";
-
-const exo2 = Exo_2({ subsets: ["latin"], variable: "--font-exo2" });
-const titillium = Titillium_Web({ subsets: ["latin"], variable: "--font-titillium", weight: ["400"] });
 
 const categories = [
   "Graphic Design",
@@ -20,22 +16,22 @@ const categories = [
 // Static image arrays for each category
 const portfolioImages = {
   "Graphic Design": [
-    "/portfolio/GraphicDesign/sm/car-dealerships.webp",
+    "/portfolio/GraphicDesign/sm/Ad-Posters-.webp",
+    "/portfolio/GraphicDesign/sm/Ad-Posters -.webp",
+    "/portfolio/GraphicDesign/sm/Ad-Posters.webp",
+    "/portfolio/GraphicDesign/sm/car-dealership.webp",
     "/portfolio/GraphicDesign/sm/fintech.webp",
     "/portfolio/GraphicDesign/sm/jewelery-stores.webp",
     "/portfolio/GraphicDesign/sm/logistic.webp",
-    "/portfolio/GraphicDesign/sm/medical,-edu.webp",
+    "/portfolio/GraphicDesign/sm/medical,-education.webp",
+    "/portfolio/GraphicDesign/sm/product-design.webp",
+    "/portfolio/GraphicDesign/sm/real-estate.webp",
+    "/portfolio/GraphicDesign/sm/Restaurant,-Hotel and Food.webp",
+    "/portfolio/GraphicDesign/sm/travel.webp",
+    "/portfolio/GraphicDesign/Thumbnail/thumbnails.webp",
     "/portfolio/GraphicDesign/sm/Music-Covers.webp",
     "/portfolio/GraphicDesign/sm/Music-Posters.webp",
     "/portfolio/GraphicDesign/sm/Album-Covers.webp",
-    "/portfolio/GraphicDesign/sm/product.webp",
-    "/portfolio/GraphicDesign/sm/real-estater.webp",
-    "/portfolio/GraphicDesign/sm/Restaurant,-Hotel,-Food.webp",
-    "/portfolio/GraphicDesign/sm/sm.webp",
-    "/portfolio/GraphicDesign/sm/sm-1.webp",
-    "/portfolio/GraphicDesign/sm/sm2.webp",
-    "/portfolio/GraphicDesign/sm/travel.webp",
-    "/portfolio/GraphicDesign/Thumbnail/thumbnails.webp",
   ],
   "Branding": [
     "/portfolio/GraphicDesign/Branding/Business-Cards.webp",
@@ -98,70 +94,100 @@ export default function PortfolioContent() {
   const router = useRouter();
   const catParam = searchParams.get("cat");
   const active = getCategoryIndex(catParam);
+  const [imagesLoaded, setImagesLoaded] = useState<Set<number>>(new Set());
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
     if (!catParam) {
       router.replace(`?cat=${categories[0].toLowerCase().replace(/\s+/g, "-")}`);
     }
-    // eslint-disable-next-line
+    setIsInitialLoad(false);
+  }, [catParam, router]);
+
+  // Reset loaded images when category changes
+  useEffect(() => {
+    setImagesLoaded(new Set());
+  }, [active]);
+
+  const handleTabClick = useCallback((idx: number) => {
+    router.push(`?cat=${categories[idx].toLowerCase().replace(/\s+/g, "-")}`);
+  }, [router]);
+
+  const currentImages = useMemo(() => 
+    portfolioImages[categories[active] as keyof typeof portfolioImages] || [],
+    [active]
+  );
+
+  const handleImageLoad = useCallback((index: number) => {
+    setImagesLoaded(prev => new Set(prev).add(index));
   }, []);
 
-  const handleTabClick = (idx: number) => {
-    router.push(`?cat=${categories[idx].toLowerCase().replace(/\s+/g, "-")}`);
-  };
-
-  const currentImages = portfolioImages[categories[active] as keyof typeof portfolioImages];
-
   return (
-    <div className={`min-h-screen bg-gradient-to-b from-black via-neutral-900 to-black px-2 pb-10 ${exo2.className}`}>
+    <div className="min-h-screen bg-gradient-to-b from-black via-neutral-900 to-black px-2 pb-10 font-exo2">
       <div className="max-w-7xl mx-auto pt-24">
-        <h1 className={`text-center text-4xl md:text-5xl font-bold text-red-600 mb-2 tracking-wide ${exo2.className}`}>
+        <h1 className="text-center text-4xl md:text-5xl font-bold text-red-600 mb-2 tracking-wide font-exo2">
           OUR PORTFOLIO
         </h1>
-        <p className={`text-center text-neutral-200 max-w-2xl mx-auto mb-8 ${titillium.className}`}>
+        <p className="text-center text-neutral-200 max-w-2xl mx-auto mb-8 font-titillium">
           At No Name Graphics, creativity meets strategy. We bring your ideas to life with designs that captivate, engage, and leave a lasting impression. Explore our diverse portfolio across multiple services.
         </p>
+        
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-6 mb-8">
+        <nav className="flex flex-wrap justify-center gap-6 mb-8" role="tablist">
           {categories.map((cat, idx) => (
             <button
               key={cat}
               onClick={() => handleTabClick(idx)}
-              className={`relative px-2 md:px-4 pb-1 text-base md:text-lg font-semibold transition ${exo2.className}
+              className={`relative px-2 md:px-4 pb-1 text-base md:text-lg font-semibold transition-colors duration-200 font-exo2 focus:outline-none
                 ${active === idx ? "text-red-500" : "text-white hover:text-red-400"}
               `}
-              style={{ outline: "none" }}
+              role="tab"
+              aria-selected={active === idx}
             >
               {cat}
               {active === idx && (
-                <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-red-500 rounded" />
+                <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-red-500 rounded will-change-transform" />
               )}
             </button>
           ))}
-        </div>
+        </nav>
         
-        {/* Portfolio Images - Block Layout */}
+        {/* Portfolio Images */}
         <div className="space-y-4 mb-8">
           {currentImages.map((imageSrc, index) => {
-            // Extract filename from path for subheading
             const filename = imageSrc.split('/').pop()?.replace('.webp', '') || `Image ${index + 1}`;
+            const isAboveFold = index === 0;
             
             return (
-              <div key={index} className="w-full">
-                <h3 className={`text-xl md:text-2xl font-bold text-red-500 text-left uppercase tracking-wider ${titillium.className}`} style={{ marginBottom: '2px', marginTop: '0' }}>
+              <article key={`${active}-${index}`} className="w-full">
+                <h2 
+                  className="text-xl md:text-2xl font-bold text-red-500 text-left uppercase tracking-wider font-titillium mb-0.5 mt-0"
+                >
                   {filename.replace(/-/g, ' ').replace(/,/g, ', ')}
-                </h3>
-                <div className="group relative overflow-hidden rounded-lg w-full h-64 md:h-[500px] lg:h-[600px]">
+                </h2>
+                <div className="group relative overflow-hidden rounded-lg w-full h-64 md:h-[500px] lg:h-[600px] will-change-transform">
+                  {!imagesLoaded.has(index) && (
+                    <div className="absolute inset-0 bg-neutral-800" />
+                  )}
+                  
                   <Image
                     src={imageSrc}
                     alt={`${categories[active]} - ${filename}`}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="100vw"
+                    className={`object-cover transition-transform duration-300 group-hover:scale-105 will-change-transform ${
+                      imagesLoaded.has(index) ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
+                    priority={isAboveFold}
+                    loading={isAboveFold ? "eager" : "lazy"}
+                    quality={75}
+                    onLoad={() => handleImageLoad(index)}
+                    decoding="async"
                   />
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                  
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>

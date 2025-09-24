@@ -170,10 +170,11 @@ export default function AboutUsPage() {
 						About Us
 					</h1>
 					<p className="text-neutral-200 text-base md:text-lg mb-3 font-exo2">
-						If there’s a change your brand craves, we believe we can help you fulfill it. But we’re not about navigating blindfolded, over the last 3 years, we have built a team that goes on this journey with you, and what comes for the ride are some super interactive brainstorming sessions and exchange of ideas. Founded by Amritpal Singh, we are a branding, marketing and creative agency based in New Delhi with a strong belief that design, be it any kind and for anything should be as functional as it is captivating.
+						Since 2022, No Name Graphics has been crafting powerful visual identities for clients across the globe. From Saudi Arabia, Oman, and the USA to every corner of India—from North to South, East to West—we’ve delivered impactful design solutions tailored to diverse business needs.
+
 					</p>
 					<p className="text-neutral-400 text-sm md:text-base font-exo2">
-						Our approach is all hands-on, and we make sure you get the benefit of our combined expertise and a genuine passion for your brand. This best of both worlds approach helps you create a brand that is unique, ever-evolving and reaches exactly who it’s meant for.
+						Backed by a team of skilled and passionate designers, we specialize in turning your ideas into visuals that not only look great but also drive results. Whether you’re a startup or an established business, our mission is to design what works best for your goals, your audience, and your growth.
 					</p>
 				</div>
 				<div className="flex-1 flex justify-center items-center w-full">
