@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <p className="mb-6 leading-relaxed">
-              No Name Graphic ("we," "us," or "our") respects the privacy of our website visitors and clients ("you" or "your"). This Privacy Policy describes the types of information we collect from and about you when you visit our website (www.nonamegraphic.com) (the "Website") or social media channels (<a href="https://www.instagram.com/nnmegraphic" className="text-red-400 underline hover:text-red-300" target="_blank" rel="noopener noreferrer">https://www.instagram.com/nnmegraphic</a>), and how we use that information.
+              No Name Graphic (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) respects the privacy of our website visitors and clients (&quot;you&quot; or &quot;your&quot;). This Privacy Policy describes the types of information we collect from and about you when you visit our website (www.nonamegraphic.com) (the &quot;Website&quot;) or social media channels (<a href="https://www.instagram.com/nnmegraphic" className="text-red-400 underline hover:text-red-300" target="_blank" rel="noopener noreferrer">https://www.instagram.com/nnmegraphic</a>), and how we use that information.
             </p>
           </section>
 
@@ -68,13 +68,13 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-bold text-red-500 mb-4 font-exo2">Your Choices</h2>
             <p className="mb-4">You have the following choices regarding your information:</p>
             <ul className="list-disc list-inside space-y-2 ml-4">
-              <li>You can opt out of receiving marketing communications from us by clicking on the "unsubscribe" link in any email we send you.</li>
+              <li>You can opt out of receiving marketing communications from us by clicking on the &quot;unsubscribe&quot; link in any email we send you.</li>
               <li>You can request that we delete your personal information by contacting us at <a href="mailto:info@nonamegraphic.com" className="text-red-400 underline">info@nonamegraphic.com</a>.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-red-500 mb-4 font-exo2">Children's Privacy</h2>
+            <h2 className="text-2xl font-bold text-red-500 mb-4 font-exo2">Children&apos;s Privacy</h2>
             <p>
               Our Website is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and you believe that your child has provided us with personal information, please contact us at <a href="mailto:info@nonamegraphic.com" className="text-red-400 underline">info@nonamegraphic.com</a> so we can delete it.
             </p>

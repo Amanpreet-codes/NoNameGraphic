@@ -10,7 +10,7 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false, // Disable CSS optimization if causing issues
   },
   poweredByHeader: false,
   compress: true,

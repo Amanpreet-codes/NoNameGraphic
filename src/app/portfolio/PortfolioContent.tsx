@@ -248,7 +248,7 @@ const YouTubeVideoCard = ({ url }: { url: string }) => {
 export default function PortfolioContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const catParam = searchParams.get("cat");
+  const catParam = searchParams?.get("cat") ?? null;
   const active = getCategoryIndex(catParam);
   const [imagesLoaded, setImagesLoaded] = useState<Set<string>>(new Set());
   const [currentSubCategory, setCurrentSubCategory] = useState(0);

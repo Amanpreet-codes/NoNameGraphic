@@ -41,7 +41,7 @@ export default function ClientsCarousel() {
             Trusted by Amazing Clients
           </h2>
           <p className="text-neutral-300 text-lg font-exo2 max-w-2xl mx-auto">
-            We're proud to have worked with incredible brands and businesses from around the world.
+            We&apos;re proud to have worked with incredible brands and businesses from around the world.
           </p>
         </div>
       </div>

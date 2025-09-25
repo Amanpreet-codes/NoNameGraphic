@@ -12,7 +12,7 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isContactPage = pathname.startsWith('/contact');
+  const isContactPage = pathname ? pathname.startsWith('/contact') : false;
   
   return (
     <>

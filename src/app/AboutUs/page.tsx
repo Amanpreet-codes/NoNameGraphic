@@ -162,10 +162,10 @@ export default function AboutUsPage() {
 						About Us
 					</h1>
 					<p className="text-neutral-200 text-base md:text-lg mb-4 font-exo2 leading-relaxed">
-						Since 2022, No Name Graphic has been crafting powerful visual identities for clients across the globe. From Saudi Arabia, Oman, and the USA to every corner of India—from North to South, East to West—we've delivered impactful design solutions tailored to diverse business needs.
+						Since 2022, No Name Graphic has been crafting powerful visual identities for clients across the globe. From Saudi Arabia, Oman, and the USA to every corner of India—from North to South, East to West—we&apos;ve delivered impactful design solutions tailored to diverse business needs.
 					</p>
 					<p className="text-neutral-400 text-sm md:text-base font-exo2 leading-relaxed">
-						Backed by a team of skilled and passionate designers, we specialize in turning your ideas into visuals that not only look great but also drive results. Whether you're a startup or an established business, our mission is to design what works best for your goals, your audience, and your growth.
+						Backed by a team of skilled and passionate designers, we specialize in turning your ideas into visuals that not only look great but also drive results. Whether you&apos;re a startup or an established business, our mission is to design what works best for your goals, your audience, and your growth.
 					</p>
 				</div>
 				<div className="flex-1 flex justify-center items-center w-full">

@@ -18,6 +18,7 @@
     "@types/react-youtube": "^7.6.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "critters": "^0.0.23",
     "framer-motion": "^12.23.12",
     "keen-slider": "^6.8.6",
     "lucide-react": "^0.542.0",
