@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
+import { useCallback } from "react"
 
 const videos = [
   "/videos/reel1.mp4",
@@ -12,18 +13,21 @@ export default function VideoCarousel() {
   const mobileVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
   const desktopVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent(prev => (prev + 1) % videos.length)
-    }, 9000)
-    return () => clearInterval(interval)
+
+  const handleVideoEnded = useCallback(() => {
+    setCurrent(prev => (prev + 1) % videos.length)
   }, [])
 
   useEffect(() => {
     // Handle mobile videos
     mobileVideoRefs.current.forEach((video, i) => {
       if (!video) return
+      
+      // Remove existing event listeners to prevent duplicates
+      video.removeEventListener('ended', handleVideoEnded)
+      
       if (i === current) {
+        video.addEventListener('ended', handleVideoEnded)
         video.play()
       } else {
         video.pause()
@@ -34,14 +38,29 @@ export default function VideoCarousel() {
     // Handle desktop videos
     desktopVideoRefs.current.forEach((video, i) => {
       if (!video) return
+      
+      // Remove existing event listeners to prevent duplicates
+      video.removeEventListener('ended', handleVideoEnded)
+      
       if (i === current) {
+        video.addEventListener('ended', handleVideoEnded)
         video.play()
       } else {
         video.pause()
         video.currentTime = 0
       }
     })
-  }, [current])
+
+    // Cleanup function
+    return () => {
+      mobileVideoRefs.current.forEach(video => {
+        if (video) video.removeEventListener('ended', handleVideoEnded)
+      })
+      desktopVideoRefs.current.forEach(video => {
+        if (video) video.removeEventListener('ended', handleVideoEnded)
+      })
+    }
+  }, [current, handleVideoEnded])
 
   return (
     <section className="py-16 bg-gradient-to-b">
@@ -67,7 +86,6 @@ export default function VideoCarousel() {
                     src={src}
                     className="w-full max-w-sm h-[500px] object-cover rounded-xl shadow-lg"
                     muted
-                    loop
                     playsInline
                   />
                 </div>
@@ -102,7 +120,6 @@ export default function VideoCarousel() {
                     isCurrent ? 'w-80 h-[500px]' : 'w-64 h-[400px]'
                   } object-cover cursor-pointer`}
                   muted
-                  loop
                   playsInline
                   onClick={() => setCurrent(i)}
                 />

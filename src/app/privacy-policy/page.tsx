@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <p className="mb-6 leading-relaxed">
-              No Name Graphic ("we," "us," or "our") respects the privacy of our website visitors and clients ("you" or "your"). This Privacy Policy describes the types of information we collect from and about you when you visit our website (www.nonamegraphic.com) (the "Website") or social media channels (<a href="https://www.instagram.com/noname_graphics/" className="text-red-400 underline hover:text-red-300" target="_blank" rel="noopener noreferrer">https://www.instagram.com/noname_graphics/</a>), and how we use that information.
+              No Name Graphic ("we," "us," or "our") respects the privacy of our website visitors and clients ("you" or "your"). This Privacy Policy describes the types of information we collect from and about you when you visit our website (www.nonamegraphic.com) (the "Website") or social media channels (<a href="https://www.instagram.com/nnmegraphic" className="text-red-400 underline hover:text-red-300" target="_blank" rel="noopener noreferrer">https://www.instagram.com/nnmegraphic</a>), and how we use that information.
             </p>
           </section>
 

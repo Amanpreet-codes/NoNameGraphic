@@ -7,7 +7,7 @@ const exo2 = Exo_2({ subsets: ["latin"], variable: "--font-exo2" });
 const titillium = Titillium_Web({ subsets: ["latin"], variable: "--font-titillium", weight: ["400"] });
 
 export const metadata: Metadata = {
-  title: "No Name Graphics - Graphic Design Agency in India",
+  title: "No Name Graphic - Graphic Design Agency in India",
   description: "Your Brand Deserves designs that resonate",
   icons: {
     icon: "/Logo.svg",

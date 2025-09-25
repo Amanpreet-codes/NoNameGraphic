@@ -24,7 +24,7 @@ export default function NavbarComp() {
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">No Name Graphics</span>
+            <span className="sr-only">No Name Graphic</span>
             <Image
               alt="Logo"
               src={Logo}
@@ -80,7 +80,7 @@ export default function NavbarComp() {
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-neutral-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-red-700/30">
           <div className="flex items-center justify-between">
             <Link href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">No Name Graphics</span>
+              <span className="sr-only">No Name Graphic</span>
               <Image
                 alt="Logo"
                 src={Logo}

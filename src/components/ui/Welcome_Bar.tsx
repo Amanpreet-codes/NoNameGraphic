@@ -35,7 +35,7 @@ export default function Welcome_Bar() {
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-red-500 mb-4">Welcome To No Name Graphic</h2>
         <p className="text-lg text-neutral-200 mb-6">
-          No Name Graphics is a creative studio dedicated to elevating your brand
+          No Name Graphic is a creative studio dedicated to elevating your brand
           through innovative design, compelling visuals, and strategic storytelling.
           With years of experience and a passion for creativity, we help businesses
           and individuals stand out in a crowded digital world.

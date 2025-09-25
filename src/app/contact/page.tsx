@@ -1,9 +1,11 @@
 "use client"
 
 import Link from "next/link"
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 
 export default function ContactPage() {
+  const searchParams = useSearchParams()
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -50,6 +52,23 @@ export default function ContactPage() {
       setLoading(false)
     }
   }, [formData])
+
+  // Pre-populate service field from URL parameter
+  useEffect(() => {
+    const serviceParam = searchParams.get('service')
+    if (serviceParam) {
+      const serviceMapping: Record<string, string> = {
+        'bulk-packages': 'Bulk Poster | Bulk reels',
+        'monthly-packages': 'Monthly Packages'
+      }
+      
+      const mappedService = serviceMapping[serviceParam] || serviceParam
+      setFormData(prev => ({
+        ...prev,
+        service: mappedService
+      }))
+    }
+  }, [searchParams])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-neutral-900 to-black px-4 py-16 flex items-center justify-center font-titillium">
@@ -114,6 +133,7 @@ export default function ContactPage() {
                 <option>Printables</option>
                 <option>Wedding Invites</option>
                 <option>Video Editing</option>
+                <option>Music Videos</option>
                 <option>Monthly Packages</option>
                 <option>Bulk Poster | Bulk reels</option>
                 <option>Other</option>
@@ -137,7 +157,7 @@ export default function ContactPage() {
         )}
         <div className="text-center text-neutral-400 mt-8 font-exo2">
           Or email us at{" "}
-          <a href="mailto:info@nonamegraphics.com" className="text-red-400 underline">
+          <a href="mailto:info@nonamegraphic.com" className="text-red-400 underline">
             info@nonamegraphic.com
           </a>
         </div>

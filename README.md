@@ -1,4 +1,4 @@
-# No Name Graphics
+# No Name Graphic
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -8,18 +8,18 @@
 
 ---
 
-Welcome to the official repository for the **No Name Graphics** agency website.  
+Welcome to the official repository for the **No Name Graphic** agency website.  
 This repo powers our landing page and portfolio — built with modern web technologies for speed, style, and scalability.
 
 ---
 
-![No Name Graphics Home Page](./src/public/HomePage-Screenshot.png)
+![No Name Graphic Home Page](./src/public/HomePage-Screenshot.png)
 
 ---
 
-## 🌟 About No Name Graphics
+## 🌟 About No Name Graphic
 
-**No Name Graphics** is a creative agency based in **New Delhi, India**, specializing in:  
+**No Name Graphic** is a creative agency based in **New Delhi, India**, specializing in:  
 
 - 🎨 Branding & Design  
 - 🖼️ Motion Graphics & Video Editing  
@@ -35,7 +35,7 @@ We help brands stand out with bold ideas, functional design, and a collaborative
 
 ## 📂 About This Repository
 
-This repository contains the official **landing page and portfolio website** of No Name Graphics.  
+This repository contains the official **landing page and portfolio website** of No Name Graphic.  
 It is provided for **transparency and demonstration purposes only**.  
 
 ⚠️ **Please do not clone, redistribute, or deploy this project as your own.**
@@ -64,14 +64,14 @@ Production URL: **[nonamegraphic.com](https://nonamegraphic.com)**
 ## 🤝 Contributing
 
 This is a **client project** and is **not open for external contributions**.  
-If you’d like to collaborate with **No Name Graphics**, please [contact us](mailto:info@nonamegraphic.com).
+If you’d like to collaborate with **No Name Graphic**, please [contact us](mailto:info@nonamegraphic.com).
 
 ---
 
 ## 📜 License & Usage
 
 This repository is **not** open source.  
-All rights reserved © **No Name Graphics, 2025**.  
+All rights reserved © **No Name Graphic, 2025**.  
 
 The code, design, and assets in this repository are protected and may **not** be reused, copied, or deployed elsewhere without explicit permission.  
 
@@ -79,7 +79,7 @@ The code, design, and assets in this repository are protected and may **not** be
 
 ## 🏆 Credits
 
-- Developed by the **No Name Graphics Web Team**  
+- Developed by the **No Name Graphic Web Team**  
 - Powered by [Next.js](https://nextjs.org/) & [Vercel](https://vercel.com/)  
 - Fonts & icons from [Google Fonts](https://fonts.google.com/) and [Lucide](https://lucide.dev/)  
 

@@ -78,7 +78,7 @@ export default function FooterComponent() {
               <FaWhatsapp />
             </a>
             <a
-              href="https://www.instagram.com/noname_graphics/"
+              href="https://www.instagram.com/nnmegraphic"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-red-500 text-xl"
