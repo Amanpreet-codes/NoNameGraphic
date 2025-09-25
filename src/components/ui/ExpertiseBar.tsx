@@ -59,7 +59,7 @@ const expertise = [
 	{
 		title: "Motion Graphics",
 		desc: "Adding life to visuals with stunning animations and motion effects for ads, presentations, and digital campaigns.",
-		key: "motion-graphics",
+		key: "video-services",
 		icon: (
 			<svg
 				className="h-8 w-8 text-white"
