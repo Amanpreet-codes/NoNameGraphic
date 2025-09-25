@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import amritpal from "/public/team/amritpal.jpg"
+import amritpal from "/public/team/Amritpal.jpg"
 import mohit from "/public/team/mohit.jpg"
 import vanshika from "/public/team/vanshika.jpg"
 import sahil from "/public/team/sahil.jpg"
