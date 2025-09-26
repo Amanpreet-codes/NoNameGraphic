@@ -68,7 +68,7 @@ export default function ClientsCarousel() {
           {allClients.map((client, index) => (
             <div
               key={`${client.name}-${index}`}
-              className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 lg:w-48 lg:h-28 bg-white/10 backdrop-blur-sm rounded-xl p-4 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group relative"
+              className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 lg:w-48 lg:h-28 bg-white/40 backdrop-blur-sm rounded-xl p-4 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group relative"
               title={client.name}
             >
               <Image
